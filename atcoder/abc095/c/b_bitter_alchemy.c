@@ -5,7 +5,7 @@ int main()
   int n, x;
   int m[100];
   int sum = 0;
-  int min_m = 0;
+  int min_m = 1e5;
   int min_m_num;
 
   scanf("%d %d", &n, &x);
@@ -21,14 +21,9 @@ int main()
   }
   //printf("sizeof(int) = %zu byte\n", sizeof(m[0]));
 
-  printf("%d", x);
-  printf("%d", sum);
-  printf("%d", x - sum);
-  printf("%d", min_m);
   min_m_num = (int) (x - sum) / min_m;
-  printf("hello");
 
-  printf("%d", n + min_m_num);
+  printf("%d\n", n + min_m_num);
 
   return 0;
 }
