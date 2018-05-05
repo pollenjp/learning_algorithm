@@ -29,10 +29,8 @@ int main()
 
   /***  Input  ***/
   scanf("%li %llu", &n, &c);
-  printf("%li %llu\n", n, c);
   for (signed int i = 1; i <= n; i++){
     scanf("%llu %li", &x[i], &v[i]);
-    printf("%llu %li\n", x[i], v[i]);
     
     /**  preprocess  **/
     if (x[i] == 0){
@@ -48,17 +46,14 @@ int main()
     for (signed long int i2 = i1+1; i2 <= n+1; i2++){    // O(n)
       ob = (c- x[i2 % (n+1)]) % c;  // OB
       calorie = 0;  // init calorie
-      printf("calorie : %llu\n", calorie);
 
       // v_1 + v_2 + ... + v_a
       for (signed long int i3 = 0; i3 <= i1; i3++){    // O(n)
         calorie += v[i3];
-        printf("calorie(v_1 + ... + v_a) : %llu\n", calorie);
       }
       // v_b + ... + v_n
       for (signed long int i4 = i2; i4 <= n+1; i4++){    // O(n)
         calorie += v[i4 % (n+1)];
-        printf("calorie(v_b + ... + v_n) : %llu\n", calorie);
       }
 
       // Compare "2OA + OB" and "OA + 2OB"
@@ -72,13 +67,9 @@ int main()
       if (calorie > max_calorie){
         max_calorie = calorie;
       }
-      printf("calorie : %llu\n", calorie);
-      printf("max_calorie : %llu\n", max_calorie);
     }
   }
 
-  printf("max_calorie : %llu\n", max_calorie);
-  printf("init_calorie : %llu\n", init_calorie);
   /*  answer  */
   answer = init_calorie + max_calorie;
   printf("%llu\n", answer);
